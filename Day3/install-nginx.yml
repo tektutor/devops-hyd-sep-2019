@@ -1,9 +1,8 @@
 - name: This playbook will install, configure and deploy webpage into nginx web server
   hosts: all
-  vars:
-    - greeting_msg: DevOps!
-    - provisioner_tool: Docker
-    - conf_mgr_tool: Ansible
+  #gather_facts: no
+  vars_files:
+     - myvars.yml
   tasks:
     - name: Install nginx web server 
       apt: name=nginx state=latest update_cache=yes
@@ -25,3 +24,22 @@
 
     - name: Restart the nginx web server to apply the configuration changes
       command: service nginx restart
+
+    - name: Show ip address
+      shell: fasfsad -i 
+      register: output
+      ignore_errors: yes
+
+    - debug: var=output
+      when: ( output.rc != 0 )
+
+
+
+
+
+
+
+
+
+
+

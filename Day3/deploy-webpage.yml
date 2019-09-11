@@ -1,0 +1,2 @@
+- name: Deploy html page into nginx web server
+  template: src=index.html.j2 dest=/var/html/index.html

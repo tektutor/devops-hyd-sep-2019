@@ -1,0 +1,4 @@
+- name: This playbook will invoke the nginx role
+  hosts: all
+  roles:
+   - nginx

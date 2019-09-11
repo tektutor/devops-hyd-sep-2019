@@ -1,0 +1,5 @@
+- name: Start the nginx web server
+  command: service nginx start
+
+- name: Create the new nginx web root folder
+  file: path=/var/html state=directory mode=0777
