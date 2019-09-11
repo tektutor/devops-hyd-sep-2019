@@ -1,0 +1,6 @@
+- name: This playbook will ping all the remote servers
+  hosts: all
+  #gather_facts: no 
+  tasks:
+   - name: Ping the virtual machine 
+     ping:
