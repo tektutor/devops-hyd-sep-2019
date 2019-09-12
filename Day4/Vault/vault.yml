@@ -1,0 +1,8 @@
+- name: Demonstrates retrieving values from vault protected file
+  hosts: localhost
+  vars_files:
+    - myfile
+  tasks:
+     - name: Print web logic credentials protected by vault
+       debug: var=weblogic_credentials
+       with_dict: "{{weblogic_credentials}}"
