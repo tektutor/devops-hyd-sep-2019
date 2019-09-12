@@ -1,0 +1,11 @@
+- name: This playbook demonstrates use of list variable
+  hosts: localhost
+  vars:
+    software_tools:
+      - vim
+      - tree
+      
+  tasks:
+    - debug: msg="{{item}}"
+      with_items: "{{software_tools}}"
+    

@@ -1,0 +1,11 @@
+- name: This playbook demonstrates use of list variable
+  hosts: localhost
+  vars:
+    my_env:
+      JAVA_HOME: /home/rps/java
+      M2_HOME: /usr/share/maven
+      
+  tasks:
+    - debug: msg="{{item.value}}"
+      with_dict: "{{my_env}}"
+    

@@ -1,0 +1,2 @@
+[all]
+centos1 ansible_port=2001 ansible_user=root ansible_host=192.168.16.70 ansible_private_key_file=/home/rps/.ssh/id_rsa

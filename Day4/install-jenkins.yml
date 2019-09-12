@@ -1,0 +1,9 @@
+- name: This playbook will install jenkins
+  hosts: all
+  become: yes
+  tasks:
+    - name: Download Jenkins war file
+      shell: wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+
+    - name: Start jenkins
+      shell: java -jar jenkins.war -httpPort=8085
