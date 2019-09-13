@@ -2,8 +2,8 @@
   hosts: all
   become: yes
   tasks:
-    - name: Install jdk
-      apt: name=default-jdk state=latest update_cache=yes
+    - name: Copy Maven archive file
+      copy: src=apache-maven-3.6.2-bin.tar.gz dest=/root/apache-maven-3.6.2-bin.tar.gz
 
-    - name: Install Maven
-      apt: name=maven state=latest update_cache=yes
+    - name: Extract maven 
+      shell: tar xvfz /root/apache-maven-3.6.2-bin.tar.gz
