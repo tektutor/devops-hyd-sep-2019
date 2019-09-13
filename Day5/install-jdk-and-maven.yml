@@ -1,0 +1,9 @@
+- name: This playbook will install JDK and Maven in containers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install jdk
+      apt: name=default-jdk state=latest update_cache=yes
+
+    - name: Install Maven
+      apt: name=maven state=latest update_cache=yes

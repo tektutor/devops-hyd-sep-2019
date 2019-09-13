@@ -1,0 +1,22 @@
+- name: This playbook demonstrates provisioning containers
+  hosts: localhost
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Install Python Package Installer (PIP)
+      shell: yum install -y python-pip
+
+    - name: Install docker-py module
+      shell: pip install docker-py
+
+    - name: Create Ubuntu containers
+      docker_container:
+        docker_host: "tcp://localhost:4243"
+        image: "qualcomm/ansible-ubuntu"
+        name: "ubuntu{{item}}"
+        hostname: "ubuntu{{item}}"
+        published_ports:
+          - "3{{item}}:22"
+          - "9{{item}}:80"
+      with_sequence: start=1 end=2 format=%03d
+
